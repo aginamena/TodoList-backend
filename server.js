@@ -4,11 +4,11 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 // To setup the endpoints we need to create an instance of the Express Router by adding the following line of code:
 const todoRoutes = express.Router();
 const TodoModel = require("./model");
-require("dotenv").config
+require("dotenv").config({ path: "./config.env" })
 
 
 app.use(cors());
@@ -100,6 +100,7 @@ connection.once('open', function () {
 
 
 
-app.listen(PORT || process.env.PORT, function () {
+
+app.listen(PORT, function () {
     console.log("Server is running on Port: " + PORT);
 });
