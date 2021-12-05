@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 4000;
 // To setup the endpoints we need to create an instance of the Express Router by adding the following line of code:
 const todoRoutes = express.Router();
 const TodoModel = require("./model");
-require("dotenv").config({ path: "./config.env" })
 
 
 app.use(cors());
@@ -97,8 +96,6 @@ const connection = mongoose.connection;
 connection.once('open', function () {
     console.log("MongoDB database connection established successfully");
 })
-
-
 
 
 app.listen(PORT, function () {
